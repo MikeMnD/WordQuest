@@ -1,34 +1,39 @@
-import 'phaser';
 
-var config = {
-    type: Phaser.AUTO,
-    parent: 'phaser-example',
-    width: 800,
-    height: 600,
-    scene: {
-        preload: preload,
-        create: create
-    }
-};
+const messageEl = document.createElement('div');
+messageEl.textContent = 'I was put here by JavaScript! ^_^';
+document.body.appendChild(messageEl);
 
-var game = new Phaser.Game(config);
+// import 'phaser';
 
-function preload ()
-{
-    this.load.image('logo', 'assets/logo.png');
-}
+// var config = {
+//     type: Phaser.AUTO,
+//     parent: 'phaser-example',
+//     width: 800,
+//     height: 600,
+//     scene: {
+//         preload: preload,
+//         create: create
+//     }
+// };
 
-function create ()
-{
-    var logo = this.add.image(400, 150, 'logo');
+// var game = new Phaser.Game(config);
 
-    this.tweens.add({
-        targets: logo,
-        y: 450,
-        duration: 2000,
-        ease: 'Power2',
-        yoyo: true,
-        loop: -1
-    });
+// function preload ()
+// {
+//     this.load.image('logo', 'assets/logo.png');
+// }
 
-}
+// function create ()
+// {
+//     var logo = this.add.image(400, 150, 'logo');
+
+//     this.tweens.add({
+//         targets: logo,
+//         y: 450,
+//         duration: 2000,
+//         ease: 'Power2',
+//         yoyo: true,
+//         loop: -1
+//     });
+
+// }
