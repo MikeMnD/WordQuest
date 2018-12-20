@@ -7,7 +7,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 
-    entry: './src/index.js',
+    entry: {
+        app: ['./src/index.js'],
+        'production-dependencies': ['phaser']
+    },
 
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -31,6 +34,7 @@ module.exports = {
     },
 
     devServer: {
+        publicPath: '/build/',
         contentBase: path.resolve(__dirname, 'build'),
     },
 
@@ -41,13 +45,17 @@ module.exports = {
                 to: path.resolve(__dirname, 'build')
             },
             {
-                from: path.resolve(__dirname, 'assets'),
-                to: path.resolve(__dirname, 'build/assets')
+                from: path.resolve(__dirname, 'assets', '**', '*'),
+                to: path.resolve(__dirname, 'build')
             }
         ]),
         new webpack.DefinePlugin({
             'CANVAS_RENDERER': JSON.stringify(true),
             'WEBGL_RENDERER': JSON.stringify(true)
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'production-dependencies',
+            filename: 'production-dependencies.bundle.js'
         })
     ]
 
