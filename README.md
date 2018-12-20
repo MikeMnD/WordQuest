@@ -1,4 +1,4 @@
-# Phaser 3 Webpack Project Template
+#WordQuest - Phaser 3 Game
 
 Starter project with Babel, Yarn, Webpack
 
